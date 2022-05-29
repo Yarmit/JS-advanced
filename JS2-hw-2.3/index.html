@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Интернет-магазин</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="logo"></div>
+	</header>
+
+	<fieldset>
+		<h4>Выберите размер бургера:</h4>
+		<input type="radio" name="size" value="Big" checked>
+		<label for="bigburger">Большой (100 рублей, 40 калорий)</label><br>
+		<input type="radio" name="size" value="Small">
+		<label for="smallburger">Малый (50 рублей, 20 калорий)</label>
+	</fieldset>
+
+	<fieldset>
+		<h4>Выберите начинку бургера:</h4>
+		<input type="radio" name="add" value="Cheese" checked>
+		<label for="cheese">Сыр (10 рублей, 20 калорий)</label><br>
+		<input type="radio" name="add" value="Salad">
+		<label for="salad">Салат (20 рублей, 5 калорий)</label><br>
+		<input type="radio" name="add" value="Potato">
+		<label for="potato">Картофель (15 рублей, 10 калорий)</label><br>
+	</fieldset>
+
+	<fieldset>
+		<h4>Выберите доп. опцию:</h4>
+		<input type="checkbox" name="topings" value="Spices" checked>
+		<label for="seasoning">Посыпать приправой (15 рублей, 0 калорий)</label><br>
+		<input type="checkbox" name="topings" value="Mayo">
+		<label for="mayonnaise">Полить майонезом (20 рублей, 5 калорий)</label><br>
+	</fieldset>
+	<br>
+	<button name="res">Рассчитать</button>
+	<br><br>
+	<p id="result">Итоговая стоимость: <span id="price">0</span> <br>
+		Кол-во калорий: <span id="calories">0</span></p>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>
