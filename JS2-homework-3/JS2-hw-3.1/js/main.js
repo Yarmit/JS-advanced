@@ -12,6 +12,7 @@ class ProductsList {
 			});
 	}
 
+
 	_getProducts() {
 		return fetch(`${API}/catalogData.json`)
 			.then(result => result.json())
@@ -58,7 +59,7 @@ class CartList {
 		this._getProducts()
 			.then((data) => { //data - объект js
 				this.goods = data.contents;
-				// console.log(data);
+				// console.log(data);				
 				this.render();
 				this.events(); // обработчик события кнопок
 			});
@@ -83,19 +84,24 @@ class CartList {
 	}
 
 	/**
-	 * функция обрабатывает нажатие кнопок в корзине
+	 * функция обрабатывает нажатие кнопок 
 	 */
 	events() {
-		let butInc = document.querySelectorAll('.cart-btn-add'); // кнопки добавить
-		let butDec = document.querySelectorAll('.cart-btn-remove'); // кнопки удалить
-		butInc.forEach(button => {
+		const btnCart = document.querySelector('.btn-cart');
+		const btnCartEl = document.querySelector('.cart-products');
+		const btnInc = document.querySelectorAll('.cart-btn-add'); // кнопки добавить
+		const btnDec = document.querySelectorAll('.cart-btn-remove'); // кнопки удалить
+		btnCart.addEventListener('click', function () {
+			btnCartEl.classList.toggle('cart-products-close');
+		})
+		btnInc.forEach(button => {
 			button.addEventListener('click', (event) => {
 				let dataID = +event.target.dataset.id;
 				console.log(dataID);
 				this.calcInc(dataID);
 			})
 		});
-		butDec.forEach(button => {
+		btnDec.forEach(button => {
 			button.addEventListener('click', (event) => {
 				let dataID = +event.target.dataset.id;
 				console.log(dataID);
@@ -176,12 +182,5 @@ class CartItem {
 	}
 }
 
-let list = new ProductsList();
-let listCart = new CartList();
-
-const btnCart = document.querySelector('.btn-cart');
-const btnCartEl = document.querySelector('.cart-products');
-
-btnCart.addEventListener('click', function () {
-	btnCartEl.classList.toggle('cart-products-close');
-})
+let products = new ProductsList();
+let cart = new CartList();
